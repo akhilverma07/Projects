@@ -1,0 +1,6 @@
+
+{
+  "name": "SkillSync AI",
+  "description": "An AI-powered platform that analyzes resumes, extracts skills, and matches them with job descriptions using Gemini NLP.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,8 @@
+
+{
+  "name": "FLOWER STORE - Premium Floral E-Commerce",
+  "description": "A high-end, production-ready e-commerce platform for boutique flower shops, featuring 3D perspective product cards, responsive galleries, and a comprehensive management dashboard.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

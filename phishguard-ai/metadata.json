@@ -1,0 +1,7 @@
+{
+  "name": "PhishGuard AI",
+  "description": "A universal fraud and phishing detection platform powered by advanced AI for analyzing emails, SMS, URLs, and QR codes.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

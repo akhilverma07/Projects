@@ -1,0 +1,8 @@
+
+{
+  "name": "HealthSense AI",
+  "description": "An intelligent early risk and mental wellness monitor that predicts physical health risks, detects stress levels, and provides personalized preventive actions.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

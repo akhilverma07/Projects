@@ -1,0 +1,8 @@
+{
+  "name": "CareerPilot AI",
+  "description": "Universal Interview Preparation & Evaluation Platform. Prepare for interviews across all job categories with AI-driven mock sessions and deep holistic feedback.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
