@@ -1,0 +1,5 @@
+{
+  "name": "PolyLingo AI",
+  "description": "An automatic language detector and multilingual text explainer powered by Gemini AI, supporting 20+ languages with context-aware interpretations.",
+  "requestFramePermissions": []
+}

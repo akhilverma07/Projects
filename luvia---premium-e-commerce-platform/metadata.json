@@ -1,0 +1,7 @@
+{
+  "name": "LUVIA - Premium E-Commerce Platform",
+  "description": "A high-end, production-ready e-commerce platform for premium fashion brands, featuring a minimalist UI, responsive product galleries, advanced filtering, persistent cart management, and a comprehensive admin dashboard.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
