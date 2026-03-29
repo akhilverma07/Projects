@@ -6,7 +6,7 @@ import {
   signOut,
   updateProfile,
 } from 'firebase/auth';
-import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, limit, query, serverTimestamp, setDoc, where } from 'firebase/firestore';
 import { AppUser } from '../types';
 import { auth, db } from '../firebase';
 
@@ -68,6 +68,16 @@ const upsertUserProfile = async (currentUser: {
     createdAt: createdAt ?? serverTimestamp(),
     lastLogin: serverTimestamp(),
   }, { merge: true });
+};
+
+const doesUserExist = async (email: string) => {
+  const userQuery = query(
+    collection(db, 'users'),
+    where('email', '==', email),
+    limit(1),
+  );
+  const snapshot = await getDocs(userQuery);
+  return !snapshot.empty;
 };
 
 const ensureDefaultAdminAccount = async () => {
@@ -196,8 +206,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return;
       }
 
+      const userExists = await doesUserExist(normalizedEmail);
+      if (!userExists) {
+        throw new Error('Account does not exist. Please register first.');
+      }
+
       await signInWithEmailAndPassword(auth, normalizedEmail, password);
     } catch (error) {
+      const authError = error as { code?: string };
+      if (authError.code === 'auth/invalid-credential') {
+        throw new Error('Invalid password.');
+      }
       throw new Error(mapFirebaseAuthError(error));
     }
   };
