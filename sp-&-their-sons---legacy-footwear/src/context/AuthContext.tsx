@@ -6,7 +6,7 @@ import {
   signOut,
   updateProfile,
 } from 'firebase/auth';
-import { collection, doc, getDoc, getDocs, limit, query, serverTimestamp, setDoc, where } from 'firebase/firestore';
+import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { AppUser } from '../types';
 import { auth, db } from '../firebase';
 
@@ -38,11 +38,11 @@ const mapFirebaseAuthError = (error: unknown) => {
     case 'auth/operation-not-allowed':
       return 'Email/password sign-in is disabled in Firebase. Enable Email/Password in Firebase Console > Authentication > Sign-in method.';
     case 'auth/user-not-found':
-      return 'Account does not exist. Please create a new account by registering first.';
+      return 'Account does not exist. Please register first.';
     case 'auth/invalid-credential':
-      return 'Invalid email or password.';
+      return 'Invalid email or password. If this email is new, please register first.';
     case 'auth/email-already-in-use':
-      return 'This email is already registered. Please log in instead.';
+      return 'This email is already registered. Please login using your password.';
     case 'auth/weak-password':
       return 'Password is too weak. Please choose a stronger password.';
     case 'auth/invalid-email':
@@ -68,16 +68,6 @@ const upsertUserProfile = async (currentUser: {
     createdAt: createdAt ?? serverTimestamp(),
     lastLogin: serverTimestamp(),
   }, { merge: true });
-};
-
-const doesUserExist = async (email: string) => {
-  const userQuery = query(
-    collection(db, 'users'),
-    where('email', '==', email),
-    limit(1),
-  );
-  const snapshot = await getDocs(userQuery);
-  return !snapshot.empty;
 };
 
 const ensureDefaultAdminAccount = async () => {
@@ -206,17 +196,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return;
       }
 
-      const userExists = await doesUserExist(normalizedEmail);
-      if (!userExists) {
-        throw new Error('Account does not exist. Please register first.');
-      }
-
       await signInWithEmailAndPassword(auth, normalizedEmail, password);
     } catch (error) {
-      const authError = error as { code?: string };
-      if (authError.code === 'auth/invalid-credential') {
-        throw new Error('Invalid password.');
-      }
       throw new Error(mapFirebaseAuthError(error));
     }
   };
