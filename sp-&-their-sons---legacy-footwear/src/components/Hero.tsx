@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="absolute right-0 top-12 h-[16rem] w-[16rem] rounded-full bg-white/5 blur-[80px] -z-10 sm:top-20 sm:h-[22rem] sm:w-[22rem] lg:h-[25rem] lg:w-[25rem] lg:blur-[100px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
+        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -23,14 +23,14 @@ const Hero = () => {
               <span className="w-2 h-2 rounded-full bg-brand-red animate-pulse" />
               New Collection 2026
             </div>
-            <h1 className="max-w-[12ch] text-[3.25rem] font-black leading-[0.9] tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
+            <h1 className="max-w-[12ch] text-[3.25rem] font-black leading-[0.9] tracking-tighter sm:text-6xl md:text-[4.5rem] lg:text-8xl">
               STEP INTO YOUR <br />
               <span className="text-brand-red">UNIQUENESS</span>
             </h1>
-            <p className="max-w-xl text-base leading-relaxed text-white/60 sm:text-lg">
+            <p className="max-w-xl text-base leading-relaxed text-white/60 sm:text-lg md:max-w-md">
               With a legacy of 57+ years, we blend tradition with modern trends. Explore our footwear and clothing collections, designed to express your personality and elevate your lifestyle.
             </p>
-            <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:gap-4 sm:pt-4">
+            <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:gap-4 sm:pt-4 md:items-start">
               <Link
                 to="/products"
                 className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-brand-red px-6 py-4 text-center font-bold uppercase tracking-[0.22em] text-white transition-all hover:bg-red-700 sm:w-auto sm:px-8 sm:tracking-widest"
@@ -47,7 +47,7 @@ const Hero = () => {
               </Link>
             </div>
             
-            <div className="grid grid-cols-3 gap-4 border-t border-white/5 pt-8 sm:gap-8 sm:pt-12">
+            <div className="grid grid-cols-3 gap-4 border-t border-white/5 pt-8 sm:gap-8 sm:pt-12 md:gap-4">
               <div>
                 <p className="text-2xl font-black sm:text-3xl">57+</p>
                 <p className="text-[10px] text-white/40 uppercase font-bold tracking-widest">Years Experience</p>
@@ -68,7 +68,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative mx-auto w-full max-w-[34rem]"
+            className="relative mx-auto w-full max-w-[20rem] sm:max-w-[25rem] md:max-w-[22rem] lg:max-w-[34rem]"
           >
             <div className="relative z-10">
               <motion.img
@@ -81,7 +81,7 @@ const Hero = () => {
               />
             </div>
             {/* Decorative Text */}
-            <div className="absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 select-none text-[24vw] font-black tracking-tighter text-white/5 sm:text-[18vw] lg:text-[15vw]">
+            <div className="absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 select-none text-[24vw] font-black tracking-tighter text-white/5 sm:text-[18vw] md:text-[11vw] lg:text-[15vw]">
               LEGACY
             </div>
           </motion.div>

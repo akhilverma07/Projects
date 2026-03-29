@@ -38,7 +38,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
@@ -142,7 +142,7 @@ const Navbar = () => {
             
             {/* Mobile Menu Toggle */}
             <button
-              className="rounded-full p-2 transition-all duration-300 hover:bg-white/5 hover:text-brand-red md:hidden"
+              className="rounded-full p-2 transition-all duration-300 hover:bg-white/5 hover:text-brand-red lg:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -158,7 +158,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-brand-dark border-b border-white/10 overflow-hidden"
+            className="bg-brand-dark border-b border-white/10 overflow-hidden lg:hidden"
           >
             <div className="max-h-[calc(100vh-5rem)] overflow-y-auto px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (
