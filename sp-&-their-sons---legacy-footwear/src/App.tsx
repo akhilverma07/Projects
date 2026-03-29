@@ -179,9 +179,9 @@ function App() {
         <ProductProvider>
           <ShopProvider>
             <Router>
-              <div className="flex flex-col min-h-screen">
+              <div className="flex min-h-screen flex-col">
                 <Navbar />
-                <main className="flex-grow">
+                <main className="flex-grow pb-20 md:pb-0">
                   <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/products" element={<Products />} />

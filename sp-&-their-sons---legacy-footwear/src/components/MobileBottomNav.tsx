@@ -17,20 +17,20 @@ const MobileBottomNav = () => {
   ];
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-brand-dark/80 backdrop-blur-xl border-t border-white/10 px-4 py-3">
-      <div className="flex justify-between items-center">
+    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-brand-dark/85 px-3 py-2 backdrop-blur-xl md:hidden">
+      <div className="mx-auto flex max-w-md items-center justify-between gap-2">
         {links.map((link) => (
           <NavLink
             key={link.label}
             to={link.path}
             className={({ isActive }) =>
-              `flex flex-col items-center gap-1 relative transition-all ${
+              `relative flex min-w-0 flex-1 flex-col items-center gap-1 rounded-2xl px-1 py-1 transition-all ${
                 isActive ? 'text-brand-red' : 'text-white/40'
               }`
             }
           >
-            <link.icon size={20} />
-            <span className="text-[10px] font-bold uppercase tracking-widest">{link.label}</span>
+            <link.icon size={18} className="sm:h-5 sm:w-5" />
+            <span className="text-[9px] font-bold uppercase tracking-[0.18em] sm:text-[10px] sm:tracking-widest">{link.label}</span>
             {link.badge !== undefined && link.badge > 0 && (
               <span className="absolute -top-1 -right-1 bg-brand-red text-white text-[8px] font-black w-4 h-4 rounded-full flex items-center justify-center">
                 {link.badge}
